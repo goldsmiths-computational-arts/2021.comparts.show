@@ -1,0 +1,1 @@
+XR immersive animation. Postscript on the Societies of Control based on one online explosion.

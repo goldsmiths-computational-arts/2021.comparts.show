@@ -1,0 +1,1 @@
+Two entities converse with each other, independent of human contact or interference. A speculation on machine relationships and 'Artificial Intimacy'. The two AI’s are abstract entities that morph and animate as they talk, their scrolling conversation feeding back into each other.

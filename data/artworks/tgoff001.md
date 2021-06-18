@@ -1,0 +1,1 @@
+This work is an interactive story looking at the act of watching and experiencing football digitally as well as in a pub environment.
