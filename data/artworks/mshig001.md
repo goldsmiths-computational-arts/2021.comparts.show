@@ -1,1 +1,0 @@
-My artwork will show to the audience a way to understand more about anxiety from a computing method.

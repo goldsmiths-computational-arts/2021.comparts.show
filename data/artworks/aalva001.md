@@ -1,1 +1,0 @@
-A 3D immersive website where the viewer is able to explore a hypothetical future in which the elements that constitute nature alongside human beings react to the ecological damage caused by the activities of our capitalist society.

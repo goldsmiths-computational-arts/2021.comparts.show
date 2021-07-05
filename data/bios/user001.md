@@ -1,1 +1,0 @@
-You can write a long biography for each artist using Markdown. They are located in the `data/bios` folder

@@ -1,1 +1,0 @@
-Stemming from ecological studies, the project ironically titled Eating Pigeons re-evaluates an individual’s relationship with the natural world by recruiting a band of city pigeons in order to create an artwork that requires both interaction and exchange with natural ecosystems in an attempt to regain one's own animality.

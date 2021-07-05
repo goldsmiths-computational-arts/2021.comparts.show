@@ -1,67 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta name="theme-color" content="#FC764D" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="theme-color" content="#333333">
 
-  %sapper.base%
+	%sapper.base%
 
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
-  integrity="sha256-aPeK/N8IHpHsvPBCf49iVKMdusfobKo2oxF8lRruWJg="
-  crossorigin="anonymous"
-  />
+	<link rel="stylesheet" href="global.css">
+	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="apple-touch-icon" href="logo-192.png">
 
-  <link rel="stylesheet" href="https://use.typekit.net/tqa6occ.css" />
-  <link rel="stylesheet" href="/css/global.css" />
-
-  <script
-  defer
-  src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-  ></script>
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-  <link rel="manifest" href="/img/site.webmanifest">
-  <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=UA-147134681-1"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "UA-147134681-1");
-  </script>
-
-    <!-- Sapper generates a <style> tag containing critical CSS
-	     for the current page. CSS for the rest of the app is
-	     lazily loaded when it precaches secondary pages -->
-       %sapper.styles%
-
-    <!-- This contains the contents of the <svelte:head> component, if
-      the current page has one -->
-      %sapper.head%
-    </head>
-    <body>
-    <!-- The application will be rendered inside this element,
-      because `src/client.js` references it -->
-      <div id="sapper">%sapper.html%</div>
-
-    <!-- Sapper creates a <script> tag containing `src/client.js`
+	<!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
-       %sapper.scripts%
-     </div>
-   </body>
+	%sapper.scripts%
 
-   </html>
+	<!-- Sapper generates a <style> tag containing critical CSS
+	     for the current page. CSS for the rest of the app is
+	     lazily loaded when it precaches secondary pages -->
+	%sapper.styles%
+
+	<!-- This contains the contents of the <svelte:head> component, if
+	     the current page has one -->
+	%sapper.head%
+</head>
+<body>
+	<!-- The application will be rendered inside this element,
+	     because `src/client.js` references it -->
+	<div id="sapper">%sapper.html%</div>
+</body>
+</html>

@@ -1,5 +1,0 @@
-Conduit attempts to form a playful kinship between oil-based materials and its audience, hoping to connect oil’s material history as ancient biological matter to human ancestry. 
-
-A work in progress due to workshop unavailability, Conduit tries to present itself as its own organism. Conduit contains oil, with 3 vacuum air pumps beneath the surface running parallel to 3 pressure sensors and 3 glasses of sand and water. When the glasses are each placed upon the sensors, the pumps are activated and bubbles rise to the surface, creating an interface between the audience and the oil through pressure. The amount of air pumped through the liquid to form these bubbles depends upon the weight of each glass - the heavier the glass, the more bubbles form. 
-
-Due to issues in transporting the work, only one motor is working in the documentation images.
