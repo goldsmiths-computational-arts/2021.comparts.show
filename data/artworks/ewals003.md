@@ -1,1 +1,0 @@
-The physical symptoms of hating yourself. An abstract look at the body's reaction of mental illness, and specifically body dysmorphia.

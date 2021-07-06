@@ -1,1 +1,0 @@
-These are instructions on how to interact with the artwork

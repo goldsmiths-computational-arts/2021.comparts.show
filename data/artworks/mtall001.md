@@ -1,1 +1,0 @@
-A small interactive virtual world of a post apocalyptic future where climate change has destroyed our current civilization.
