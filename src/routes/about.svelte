@@ -2,7 +2,6 @@
   import { onMount } from 'svelte'
 
   let el
-
   onMount(async () => {
     const threeDemo = await import('sketches/three-demo')
     threeDemo.default().createScene(el)
@@ -31,12 +30,13 @@
     font-size: 100px;
   }
 
+
   .narrow-sketch {
     position: absolute;
-    top: 100px;
-    left: 100px;
-    width: 100px;
-    height: 400px;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
     z-index: 0;
   }
 </style>
