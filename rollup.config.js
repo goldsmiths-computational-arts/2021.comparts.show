@@ -44,6 +44,7 @@ export default {
       }),
       resolve({
         browser: true,
+        main: true,
         dedupe: ['svelte'],
       }),
       commonjs(),
@@ -95,6 +96,10 @@ export default {
           {
             find: 'components',
             replacement: path.resolve(__dirname, 'src/components'),
+          },
+          {
+            find: 'utils',
+            replacement: path.resolve(__dirname, 'src/utils'),
           },
         ],
       }),
@@ -150,6 +155,10 @@ export default {
           {
             find: 'components',
             replacement: path.resolve(__dirname, 'src/components'),
+          },
+          {
+            find: 'utils',
+            replacement: path.resolve(__dirname, 'src/utils'),
           },
         ],
       }),
