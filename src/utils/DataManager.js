@@ -6,7 +6,9 @@ import {readFileSync} from "fs";
 
 export default class DataManager {
     static getPosts = () => {
+        // Parses csv
         const posts = csvParse(
+            //Reads CSV file
             readFileSync(`${DATA_DIR}/posts.csv`, 'utf-8')
         )
 
