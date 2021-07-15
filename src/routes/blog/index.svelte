@@ -1,4 +1,5 @@
 <script context="module">
+
 	export function preload() {
 		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
 			return { posts };
@@ -8,6 +9,13 @@
 
 <script>
 	export let posts;
+	// console.log('BEFORE', posts)
+
+	// import DataManager from '../../utils/DataManager.js'
+	
+	// export let posts = DataManager.getPosts()
+	// console.log('DATA', posts)
+
 </script>
 
 <style>
