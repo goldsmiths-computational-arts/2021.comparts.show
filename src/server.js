@@ -8,7 +8,6 @@ const dev = NODE_ENV === 'development';
 
 polka() // You can also use Express
 	.use(
-		'2021.comparts.show',
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
 		sapper.middleware()
