@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --basepath 2021.goldcomparts.show --legacy",
+    "export": "sapper export --basepath 2021.comparts.show --legacy",
     "start": "node __sapper__/build",
     "deploy": "npm run export && node ./scripts/gh-pages.js"
   },
