@@ -92,9 +92,12 @@
     }
 
     .text-layer {
-        font-size: 36px;
+        font-size: 4vw;
+     
         text-align: justify;
     }
+
+
 
     .names {
          /*filter: blur(5px);*/
@@ -131,6 +134,12 @@
     .key-text {
         margin-bottom: 1em;
         color: red;
+    }
+
+    @media (max-width: 768px) {
+        .text-layer {
+            font-size: 4vh;
+        }
     }
 
 </style>
