@@ -2,3 +2,4 @@
 // cleaner import approach when being used
 
 export { default as OnePager } from './one-pager.svelte'
+export { default as SEO } from './seo.svelte'
