@@ -1,5 +1,5 @@
 <script>
-    import {GeneralShowInfo} from '../constants/general-show-info.js'
+    import {GeneralShowInfo} from '../constants'
 </script>
 
 <svelte:head>
