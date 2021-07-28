@@ -56,7 +56,7 @@
   <div class={isMobile ? 'text-layer-mobile' : 'text-layer'}>
     <div class="names">
       {#each firstSectionOfArtists as artist}
-        {`${artist.name}, `}
+        {`${artist.displayName}, `}
       {/each}
     </div>
     <div class="key-text">
@@ -65,7 +65,7 @@
     </div>
     <div class="names">
       {#each secondSectionOfArtists as artist}
-        {`${artist.name}, `}
+        {`${artist.displayName}, `}
       {/each}
     </div>
 
