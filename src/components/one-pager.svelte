@@ -1,11 +1,12 @@
 <script>
     import { onMount } from 'svelte'
-    import { GeneralShowInfo, ArtistNames } from "../constants";
+    import { GeneralShowInfo } from "../constants";
+    import ArtistsCSV from '../utils/data/artists.csv'
 
+    
     const random = (min, max) => {
         return Math.random() * (max - min) + min;
     }
-
     onMount(async () => {
         const moveCircles = () => {
             Array.from(document.querySelectorAll(".bubble-overlay")).forEach(svgElement => {
@@ -34,24 +35,30 @@
         }
     }
 
-    shuffleArray(ArtistNames)
-    const half = Math.ceil(ArtistNames.length / 2)
 
-    const namesOne = ArtistNames.slice(0, half).toString().replace(/,/g, ', ')
-    const namesTwo = ArtistNames.slice(-half).toString().replace(/,/g, ', ')
+    shuffleArray(ArtistsCSV)
+    const half = Math.ceil(ArtistsCSV.length / 2)
+
+    const firstSectionOfArtists = ArtistsCSV.slice(0, half);
+    const secondSectionOfArtists = ArtistsCSV.slice(-half);
+
 </script>
 
 <body>
 <div class="text-layer">
     <div class="names">
-        {namesOne}
+        {#each firstSectionOfArtists as artist}
+            {`${artist.name}, ` }
+        {/each}
     </div>
     <div class="key-text">
         <span class="show-title"> {GeneralShowInfo.fullShowName}</span>
         {GeneralShowInfo.description}
     </div>
     <div class="names">
-        {namesTwo}
+        {#each secondSectionOfArtists as artist}
+            {`${artist.name}, `}
+        {/each}
     </div>
 
     <svg preserveAspectRatio="xMinYMid meet" class="bubble-overlay" viewBox="0 0 100 100"
@@ -85,9 +92,12 @@
     }
 
     .text-layer {
-        font-size: 36px;
+        font-size: 4vw;
+     
         text-align: justify;
     }
+
+
 
     .names {
          /*filter: blur(5px);*/
@@ -124,6 +134,12 @@
     .key-text {
         margin-bottom: 1em;
         color: red;
+    }
+
+    @media (max-width: 768px) {
+        .text-layer {
+            font-size: 4vh;
+        }
     }
 
 </style>
