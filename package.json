@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@rollup/plugin-dsv": "^2.0.1",
+    "animejs": "^3.2.1",
     "compression": "^1.7.1",
     "gh-pages": "^3.2.3",
     "polka": "next",
