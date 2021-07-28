@@ -1,10 +1,8 @@
 <script>
-  import { OnePager } from 'components'
+  import { OnePager, SEO } from 'components'
 </script>
 
-<svelte:head>
-  <title>SHIVERS</title>
-</svelte:head>
+<SEO />
 
 <body>
   <OnePager />
