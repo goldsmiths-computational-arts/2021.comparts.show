@@ -12,7 +12,7 @@
                 const circles = Array.from(svgElement.querySelectorAll(".image-circle"));
                 const cx = random(0, 100);
                 const cy = random(0, 100);
-                console.log({ cx, cy })
+                // console.log({ cx, cy })
                 circles.forEach(circleEl => {
                     circleEl.setAttribute("cx", cx);
                     circleEl.setAttribute("cy", cy)
