@@ -3,13 +3,12 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
+  <title>SHIVERS</title>
 </svelte:head>
 
 <body>
-<OnePager/>
+  <OnePager />
 </body>
 
 <style>
-
 </style>
