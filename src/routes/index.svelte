@@ -1,10 +1,12 @@
 <script>
-  import { OnePager } from 'components'
+  import { OnePager, SEO } from 'components'
+  
 </script>
 
-<svelte:head>
+<SEO />
+<!-- <svelte:head>
   <title>Home</title>
-</svelte:head>
+</svelte:head> -->
 
 <body>
 <OnePager/>
