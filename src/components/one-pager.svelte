@@ -13,7 +13,14 @@
   const random = (min, max) => {
     return Math.random() * (max - min) + min
   }
+
+  let imageIdOne
+  let imageIdTwo
+
   onMount(async () => {
+    imageIdOne = Math.floor(random(1, 163)).toString().padStart(5, '0')
+    imageIdTwo = Math.floor(random(1, 163)).toString().padStart(5, '0')
+
     const moveCircles = () => {
       Array.from(document.querySelectorAll('.bubble-overlay')).forEach(
         (svgElement) => {
@@ -80,7 +87,7 @@
       </clipPath>
       <image
         class="svg-overlay-img"
-        href="./img/one-pager/overlay-bg-1.png"
+        href="./img/overlay-images/shivers_artist_{imageIdOne}.png"
         clip-path="url(#myClip)"
       />
       <circle
@@ -106,7 +113,7 @@
       </clipPath>
       <image
         class="svg-overlay-img"
-        href="./img/one-pager/overlay-bg-2.png"
+        href="./img/overlay-images/shivers_artist_{imageIdTwo}.png"
         clip-path="url(#myClip2)"
       />
       <ellipse
