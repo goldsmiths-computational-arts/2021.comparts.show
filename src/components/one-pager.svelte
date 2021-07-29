@@ -19,7 +19,7 @@
   let startPosYA = random(0, 1000);
   let startPosXB = random(150, 1000);
   let startPosYB = random(150, 1000);
-   let startPosXC = random(300, 1000);
+  let startPosXC = random(300, 1000);
   let startPosYC = random(300, 1000);
 
   let imageIdOne
