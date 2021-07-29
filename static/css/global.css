@@ -38,14 +38,15 @@ a {
 
 .wf-loading {
   opacity: 0;
+  color: rgba(0, 0, 0, 0);
 }
 
 .wf-active {
   -webkit-transition: opacity 0.25s ease-in;
   transition: opacity 0.25s ease-in;
-  opacity: 1;
+  color: rgba(0, 0, 0, 1);
 }
 
 html {
-  opacity: 0;
+  color: rgba(0, 0, 0, 0);
 }
