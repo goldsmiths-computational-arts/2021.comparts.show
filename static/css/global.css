@@ -35,3 +35,18 @@ a {
   height: 100%;
   z-index: 0;
 }
+
+.wf-loading {
+  opacity: 0;
+  color: rgba(0, 0, 0, 0);
+}
+
+.wf-active {
+  -webkit-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  color: rgba(0, 0, 0, 1);
+}
+
+html {
+  color: rgba(0, 0, 0, 0);
+}
