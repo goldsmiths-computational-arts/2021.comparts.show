@@ -2,14 +2,9 @@
   import { onMount } from 'svelte'
   import { GeneralShowInfo } from '../constants'
   import ArtistsCSV from '../utils/data/artists.csv'
-  import { stores } from '@sapper/app'
-  import UAParser from 'ua-parser-js'
   import anime from 'animejs/lib/anime.es.js'
 
-  var parser = new UAParser()
-  const { session } = stores()
-  parser.setUA($session['user-agent'])
-  let isMobile = parser.getResult().device['type'] === 'mobile'
+  let isMobile
 
   const random = (min, max) => {
     return Math.random() * (max - min) + min
@@ -33,6 +28,8 @@
   onMount(async () => {
     windowWidth = window.innerWidth
     windowHeight = window.innerHeight
+
+    isMobile = windowWidth < 768
 
     window.onresize = () => {
       windowWidth = window.innerWidth
