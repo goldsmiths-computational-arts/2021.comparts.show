@@ -1,12 +1,11 @@
 <script>
   import { OnePager, SEO } from 'components'
+  import 'css/global.css'
 </script>
 
 <SEO />
 
-<body>
-  <OnePager />
-</body>
+<OnePager />
 
 <style>
 </style>

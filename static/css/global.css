@@ -35,3 +35,13 @@ a {
   height: 100%;
   z-index: 0;
 }
+
+.wf-loading {
+  opacity: 0;
+}
+
+.wf-active {
+  -webkit-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  opacity: 1;
+}
