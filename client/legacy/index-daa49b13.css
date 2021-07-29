@@ -1,0 +1,54 @@
+body.svelte-1qkssfm{margin:5px;font-family:dotgothic16;font-weight:400;font-style:normal}.text-layer.svelte-1qkssfm{font-size:2rem;text-align:justify}.text-layer-mobile.svelte-1qkssfm{font-size:1rem;text-align:justify}.show-title.svelte-1qkssfm{text-transform:uppercase}.bubble-overlay.svelte-1qkssfm{position:fixed;top:0;left:0;z-index:100;pointer-events:none}.svg-overlay-img.svelte-1qkssfm{y:0;x:0}.names.svelte-1qkssfm:first-child{margin-bottom:1em}.key-text.svelte-1qkssfm{margin-bottom:1em;color:red}@media(max-width: 768px){.text-layer.svelte-1qkssfm{font-size:4vh}}
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  margin: 0;
+  font-family: Bona Nova;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+a {
+  color: inherit;
+}
+
+.fullscreen-sketch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.wf-loading {
+  opacity: 0;
+  color: rgba(0, 0, 0, 0);
+}
+
+.wf-active {
+  -webkit-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+  color: rgba(0, 0, 0, 1);
+}
+
+html {
+  color: rgba(0, 0, 0, 0);
+}
+
