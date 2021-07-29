@@ -45,3 +45,7 @@ a {
   transition: opacity 0.25s ease-in;
   opacity: 1;
 }
+
+html {
+  opacity: 0;
+}

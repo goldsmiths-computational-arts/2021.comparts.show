@@ -22,9 +22,9 @@
   let startPosXC = random(300, 1000)
   let startPosYC = random(300, 1000)
 
-  let imageIdOne
-  let imageIdTwo
-  let imageIdThree
+  let imageIdOne = Math.floor(random(1, 163)).toString().padStart(5, '0')
+  let imageIdTwo = Math.floor(random(1, 163)).toString().padStart(5, '0')
+  let imageIdThree = Math.floor(random(1, 163)).toString().padStart(5, '0')
 
   let windowWidth
   let windowHeight
@@ -40,10 +40,6 @@
     }
 
     isPortrait = windowWidth < windowHeight
-
-    imageIdOne = Math.floor(random(1, 163)).toString().padStart(5, '0')
-    imageIdTwo = Math.floor(random(1, 163)).toString().padStart(5, '0')
-    imageIdThree = Math.floor(random(1, 163)).toString().padStart(5, '0')
 
     startPosXA = random(0, windowWidth)
     startPosYA = random(0, windowHeight)
@@ -110,7 +106,6 @@
       Array.from(document.querySelectorAll('.bubble-overlay')).forEach(
         (svgElement) => {
           const circles = Array.from(svgElement.querySelectorAll('.blob-path'))
-          console.log(circles)
           const cx = random(0, windowWidth)
           const cy = random(0, windowHeight)
 
