@@ -73,7 +73,6 @@
   }
 
   const artworkUrlArray = artworkInfo.photoUrl.split(',')
-  console.log(artworkInfo)
 </script>
 
 <div class="container">
@@ -284,5 +283,14 @@
   .small-image {
     width: 100%;
     height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .bio-image {
+      align-self: center;
+      justify-self: center;
+      width: 75%;
+      padding-top: 4vh;
+    }
   }
 </style>

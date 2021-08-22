@@ -126,8 +126,6 @@
     }, 500)
   })
 
-  console.log(ArtistsCSV)
-
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1))
@@ -351,8 +349,6 @@
 
   .artist-link:hover {
     color: red;
-    text-decoration: underline dotted;
-    /* text-decoration-style: dashed; */
   }
 
   a {
