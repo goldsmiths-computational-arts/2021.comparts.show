@@ -1,8 +1,9 @@
 <script>
   import { onMount } from 'svelte'
   import { GeneralShowInfo } from '../constants'
-  import ArtistsCSV from '../utils/data/artists.csv'
+  import ArtistsCSV from '../utils/data/artworks.csv'
   import anime from 'animejs/lib/anime.es.js'
+  import { nameProcessor } from '../utils/nameProcessor'
 
   let isMobile
 
@@ -125,6 +126,8 @@
     }, 500)
   })
 
+  console.log(ArtistsCSV)
+
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1))
@@ -144,17 +147,59 @@
 <body>
   <div class={isMobile ? 'text-layer-mobile' : 'text-layer'}>
     <div class="names">
-      {#each firstSectionOfArtists as artist}
-        {`${artist.displayName}, `}
+      {#each firstSectionOfArtists as artist, i}
+        <a
+          class="artist-link"
+          href={`/artist/${nameProcessor(artist.preferredName)}`}
+        >
+          {#if i < firstSectionOfArtists.length - 1}
+            {`${artist.preferredName.trim()},`}
+          {:else}
+            {`${artist.preferredName.trim()}`}
+          {/if}
+        </a>
       {/each}
     </div>
     <div class="key-text">
-      <span class="show-title"> {GeneralShowInfo.fullShowName}</span>
-      {GeneralShowInfo.description}
+      <span class="show-title">
+        Shivers — Computational Arts MA/MFA Degree Show</span
+      >
+      <span class="parenthesis">(About)</span>
+      , 1st - 5th September 2021.
+      <span class="parenthesis">(Schedule)</span>
+      Opening night Wednesday 1st September. Join us this September for the end of
+      year exhibition of Goldsmiths Computational Arts Masters students.
+      <span class="parenthesis">(Floor map)</span>
+      This exhibition will feature ground-breaking immersive performances, interactive
+      installations, virtual and augmented realities, and thought-provoking conceptual
+      works by mixed disciplinary artists from a diverse range of fields including
+      fine art, design, psychology, music and creative computation. More information
+      will be available via this website in the coming weeks.
+    </div>
+    <div class="key-text">
+      Location: St. James Hatcham Building, <a
+        href="https://goo.gl/maps/wXMErm3a1NbEAq1y5"
+        target="_blank"
+        rel="noref">25 St James', London SE14 6AD</a
+      >. Please
+      <a
+        href="https://www.eventbrite.co.uk/e/shivers-computational-arts-degree-show-mamfa-2021-tickets-164981515153"
+        target="_blank"
+        rel="noref">book a ticket here</a
+      > ahead of time. We are looking forward to seeing you there
     </div>
     <div class="names">
-      {#each secondSectionOfArtists as artist}
-        {`${artist.displayName}, `}
+      {#each secondSectionOfArtists as artist, i}
+        <a
+          class="artist-link"
+          href={`/artist/${nameProcessor(artist.preferredName)}`}
+        >
+          {#if i < secondSectionOfArtists.length - 1}
+            {`${artist.preferredName.trim()},`}
+          {:else}
+            {`${artist.preferredName.trim()}`}
+          {/if}
+        </a>
       {/each}
     </div>
 
@@ -298,6 +343,34 @@
   .key-text {
     margin-bottom: 1em;
     color: red;
+  }
+
+  .artist-link {
+    text-decoration: none;
+  }
+
+  .artist-link:hover {
+    color: red;
+    text-decoration: underline dotted;
+    /* text-decoration-style: dashed; */
+  }
+
+  a {
+    text-decoration-style: dotted;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .parenthesis {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .parenthesis:hover {
+    text-decoration: underline dotted;
   }
 
   @media (max-width: 768px) {
