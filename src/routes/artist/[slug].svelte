@@ -43,7 +43,8 @@
   )
 
   const artistInfo = ArtistsCSV.find(
-    (element) => element.uniEmail === artworkInfo.email
+    (element) =>
+      element.uniEmail.split('@')[0] === artworkInfo.email.split('@')[0]
   )
 
   let artworkDescription
@@ -53,8 +54,18 @@
     artworkDescription = artworkInfo.artwork.split('\n')
   }
 
+  let instagram, website, youtube, vimeo, twitch, facebook, twitter, email
   if (artistInfo) {
     artistBio = artistInfo.artistBio.split('\n')
+
+    instagram = artistInfo.instagram
+    website = artistInfo.website
+    youtube = artistInfo.youtube
+    vimeo = artistInfo.vimeo
+    twitch = artistInfo.twitch
+    facebook = artworkInfo.facebook
+    twitter = artworkInfo.twitter
+    email = artworkInfo.email
   }
 
   if (artworkInfo.bio !== '') {
@@ -62,21 +73,11 @@
   }
 
   const artworkUrlArray = artworkInfo.photoUrl.split(',')
-
-  const {
-    instagram,
-    website,
-    youtube,
-    vimeo,
-    twitch,
-    facebook,
-    twitter,
-    email,
-  } = artistInfo
+  console.log(artworkInfo)
 </script>
 
 <div class="container">
-  {#if !artworkInfo}
+  {#if !artworkInfo || !artistInfo}
     <div class="error-message">Artist data not found</div>
     <div on:click={handleBackButton} class="go-back">Go back.</div>
   {:else}
@@ -139,33 +140,37 @@
       {/each}
     </div>
     <div class="media-icons">
-      {#if email !== ''}
+      {#if email}
         <a href="mailto:{artistInfo.email}" target="_blank" rel="noreferrer"
           ><img src="/img/icons/email.svg" alt="back" class="back-arrow" /></a
         >
       {/if}
-      {#if facebook !== ''}
+      {#if facebook}
         <img src="/img/icons/fb.svg" alt="back" class="back-arrow" />
       {/if}
-      {#if instagram !== ''}
+      {#if instagram}
         <a
-          href="https://www.instagram.com/{instagram.replace('@', '')}"
+          href="https://www.instagram.com/{instagram
+            .replace('@', '')
+            .replace('https://www.instagram.com/', '')}"
           target="_blank"
           rel="noreferrer"
         >
           <img src="/img/icons/ig.svg" alt="back" class="back-arrow" />
         </a>
       {/if}
-      {#if twitch !== ''}
+      {#if twitch}
         <img src="/img/icons/twitch.svg" alt="back" class="back-arrow" />
       {/if}
-      {#if twitter !== ''}
+      {#if twitter}
         <img src="/img/icons/twitter.svg" alt="back" class="back-arrow" />
       {/if}
-      {#if vimeo !== ''}
-        <img src="/img/icons/vimeo.svg" alt="back" class="back-arrow" />
+      {#if vimeo}
+        <a href={vimeo} target="_blank" rel="noreferrer">
+          <img src="/img/icons/vimeo.svg" alt="back" class="back-arrow" />
+        </a>
       {/if}
-      {#if website !== ''}
+      {#if website}
         <a
           href="https://{website.replace('https://', '')}"
           target="_blank"
@@ -174,7 +179,7 @@
           <img src="/img/icons/website.svg" alt="back" class="back-arrow" />
         </a>
       {/if}
-      {#if youtube !== ''}
+      {#if youtube}
         <a href={youtube} target="_blank" rel="noreferrer">
           <img src="/img/icons/yt.svg" alt="back" class="back-arrow" />
         </a>

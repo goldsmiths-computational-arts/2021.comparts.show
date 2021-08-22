@@ -30,7 +30,10 @@ const getMegaformData = async (sheets) => {
     const twitter = data[53]
     const email = data[54]
 
-    megaformData += `${fullName},${preferredName},${uniEmail},"${artistBio}",${instagram},${website},${youtube},${vimeo},${twitch},${facebook},${twitter},${email}\n`
+    megaformData += `${fullName},${preferredName},${uniEmail},"${artistBio.replace(
+      /["']/g,
+      `'`
+    )}",${instagram},${website},${youtube},${vimeo},${twitch},${facebook},${twitter},${email}\n`
   })
   fs.writeFileSync(`${artworkDir}/artists.csv`, megaformData)
 }
@@ -136,7 +139,7 @@ const getArtworkFormData = async (sheets, drive) => {
     artworkSubmissionFormData += `${email},${legalName},${preferredName},"${bio.replace(
       /["']/g,
       `'`
-    )}","${title}","${artwork.replace(
+    )}","${title.replace(/["']/g, `'`)}","${artwork.replace(
       /["']/g,
       `'`
     )}","${photoUrl}",${videoUrlOne},${videoUrlTwo},"${instructions}" \n`
