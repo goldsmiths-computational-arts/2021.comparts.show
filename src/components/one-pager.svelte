@@ -200,7 +200,11 @@
         </a>
       {/each}
     </div>
-
+    <div class="svg-overlay-bgImg"
+    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdOne}.png); 
+    clip-path: url(#myClip);"
+    >
+    </div>
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -222,17 +226,13 @@
           fill="#000"
         />
       </clipPath>
-      <g clip-path="url(#myClip)">
-        <image
-          class="svg-overlay-img"
-          style={isPortrait
-            ? 'object:cover; height:100vh'
-            : 'object:cover; width:100vw'}
-          href="./img/overlayImages/shivers_artist_{imageIdOne}.png"
-        />
-      </g>
     </svg>
 
+    <div class="svg-overlay-bgImg"
+    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdTwo}.png); 
+    clip-path: url(#myClip2);"
+    >
+    </div>
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -254,17 +254,12 @@
           fill="#000"
         />
       </clipPath>
-      <g clip-path="url(#myClip2)">
-        <image
-          class="svg-overlay-img"
-          style={isPortrait
-            ? 'object:cover; height:100vh'
-            : 'object:cover; width:100vw'}
-          href="./img/overlayImages/shivers_artist_{imageIdTwo}.png"
-        />
-      </g>
     </svg>
-
+    <div class="svg-overlay-bgImg"
+    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdThree}.png); 
+    clip-path: url(#myClip3);"
+    >
+    </div>
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -286,15 +281,6 @@
           fill="#000"
         />
       </clipPath>
-      <g clip-path="url(#myClip3)">
-        <image
-          class="svg-overlay-img"
-          style={isPortrait
-            ? 'object:cover; height:100vh'
-            : 'object:cover; width:100vw'}
-          href="./img/overlayImages/shivers_artist_{imageIdThree}.png"
-        />
-      </g>
     </svg>
   </div>
 </body>
@@ -329,9 +315,14 @@
     pointer-events: none;
   }
 
-  .svg-overlay-img {
-    y: 0;
-    x: 0;
+  .svg-overlay-bgImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:100vh;
+    width:100vw;
+    background-size: 500px;
+    background-repeat: repeat;
   }
 
   .names:first-child {
