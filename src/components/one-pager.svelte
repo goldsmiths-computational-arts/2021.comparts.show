@@ -209,11 +209,11 @@
         </a>
       {/each}
     </div>
-    <div class="svg-overlay-bgImg"
-    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdOne}.png); 
+    <div
+      class="svg-overlay-bgImg"
+      style="background-image: url(./img/overlayImages/shivers_artist_{imageIdOne}.png); 
     clip-path: url(#myClip);"
-    >
-    </div>
+    />
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -237,11 +237,11 @@
       </clipPath>
     </svg>
 
-    <div class="svg-overlay-bgImg"
-    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdTwo}.png); 
+    <div
+      class="svg-overlay-bgImg"
+      style="background-image: url(./img/overlayImages/shivers_artist_{imageIdTwo}.png); 
     clip-path: url(#myClip2);"
-    >
-    </div>
+    />
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -264,11 +264,11 @@
         />
       </clipPath>
     </svg>
-    <div class="svg-overlay-bgImg"
-    style="background-image: url(./img/overlayImages/shivers_artist_{imageIdThree}.png); 
+    <div
+      class="svg-overlay-bgImg"
+      style="background-image: url(./img/overlayImages/shivers_artist_{imageIdThree}.png); 
     clip-path: url(#myClip3);"
-    >
-    </div>
+    />
     <svg
       preserveAspectRatio="xMinYMid meet"
       class="bubble-overlay"
@@ -290,18 +290,6 @@
           fill="#000"
         />
       </clipPath>
-<<<<<<< Updated upstream
-=======
-      <g clip-path="url(#myClip3)" class="thang">
-        <image
-          class="svg-overlay-img"
-          style={isPortrait
-            ? 'object:cover; height:100vh'
-            : 'object:cover; width:100vw'}
-          href="./img/overlayImages/shivers_artist_{imageIdThree}.png"
-        />
-      </g>
->>>>>>> Stashed changes
     </svg>
   </div>
 </body>
@@ -336,19 +324,16 @@
     pointer-events: none;
   }
 
-<<<<<<< Updated upstream
   .svg-overlay-bgImg {
     position: fixed;
     top: 0;
     left: 0;
-    height:100vh;
-    width:100vw;
+    height: 100vh;
+    width: 100vw;
     background-size: 500px;
     background-repeat: repeat;
   }
 
-=======
->>>>>>> Stashed changes
   .names:first-child {
     margin-bottom: 1em;
   }
