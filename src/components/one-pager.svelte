@@ -128,15 +128,17 @@
     let prevSelector = 0
     let interval = random(800, 1500)
 
-    const irregularClock = () => {
-      let selector = Math.floor(random(0, elements.length))
-      elements[selector].style.color = 'red'
-      elements[prevSelector].style.color = 'black'
-      prevSelector = selector
-      setTimeout(irregularClock, interval)
-    }
+    if (isMobile) {
+      const irregularClock = () => {
+        let selector = Math.floor(random(0, elements.length))
+        elements[selector].style.color = 'red'
+        elements[prevSelector].style.color = 'black'
+        prevSelector = selector
+        setTimeout(irregularClock, interval)
+      }
 
-    setInterval(irregularClock, interval)
+      setInterval(irregularClock, interval)
+    }
   })
 
   function shuffleArray(array) {
