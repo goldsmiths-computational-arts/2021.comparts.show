@@ -127,6 +127,8 @@
       moveCircles()
       setInterval(moveCircles, 10000)
     }, 500)
+
+    // Array.from()
   })
 </script>
 
@@ -146,7 +148,7 @@
     >
     <span class="tog" on:click={handleAvPerformances}>AV Performances</span>
     <span>/</span>
-    <span class="tog" on:click={handlePP}>Public Programming</span>
+    <span class="tog" on:click={handlePP}>Panel Discussions</span>
   </div>
 
   {#if showG05}

@@ -108,7 +108,6 @@
           const cy = random(0, windowHeight)
 
           circles.forEach((circleEl) => {
-            // circleEl.setAttribute("transform", `translate(${cx},${cy})`);
             anime({
               targets: circleEl,
               translateX: cx,
@@ -124,6 +123,20 @@
       moveCircles()
       setInterval(moveCircles, 10000)
     }, 500)
+
+    const elements = Array.from(document.querySelectorAll('.artist-link'))
+    let prevSelector = 0
+    let interval = random(800, 1500)
+
+    const irregularClock = () => {
+      let selector = Math.floor(random(0, elements.length))
+      elements[selector].style.color = 'red'
+      elements[prevSelector].style.color = 'black'
+      prevSelector = selector
+      setTimeout(irregularClock, interval)
+    }
+
+    setInterval(irregularClock, interval)
   })
 
   function shuffleArray(array) {
@@ -162,35 +175,33 @@
       <span class="show-title">
         Shivers — Computational Arts MA/MFA Degree Show</span
       >
-      <a href="/about" class="parenthesis">|About| </a>
+      <a href="/about" class="parenthesis">[About]</a>
       , 1st - 5th September 2021.
-      <a href="/schedule" class="parenthesis">|Live Events|</a>
+      <a href="/schedule" class="parenthesis">[Live Events]</a>
       Opening night Wednesday 1st September. Join us this September for the end of
-      year exhibition of Goldsmiths Computational Arts Masters students. This exhibition
-      will feature ground-breaking immersive performances, interactive installations,
-      virtual and augmented realities, and thought-provoking conceptual works by
-      mixed disciplinary artists from a diverse range of fields including fine art,
-      design, psychology, music and creative computation. More information will be
-      available via this website in the coming weeks.
-    </div>
-    <div class="key-text">
-      <span class="parenthesis">Location:</span> St. James Hatcham Building,
+      year exhibition of Goldsmiths Computational Arts Masters students.
       <a
         href="https://goo.gl/maps/wXMErm3a1NbEAq1y5"
         target="_blank"
-        rel="noref">25 St James', London SE14 6AD</a
-      >.
-    </div>
-    <div class="key-text">
-      <span class="parenthesis">Ticketing:</span> Please
+        rel="noref"
+        class="parenthesis">[Location]</a
+      >
+      This exhibition will feature ground-breaking immersive performances, interactive
+      installations, virtual and augmented realities,
       <a
         href="https://www.eventbrite.co.uk/e/shivers-computational-arts-degree-show-mamfa-2021-tickets-164981515153"
         target="_blank"
-        rel="noref">book a ticket here</a
-      > ahead of time. We are looking forward to seeing you there
+        rel="noref"
+        class="parenthesis">[Ticketing]</a
+      >
+      and thought-provoking conceptual works by mixed disciplinary artists from a
+      diverse range of fields including fine art, design, psychology,
+      <a href="#openingTimes" class="parenthesis">[Opening Times]</a> music and creative
+      computation. More information will be available via this website in the coming
+      weeks.
     </div>
     <div class="key-text">
-      <span class="parenthesis">Opening times:</span>
+      <span class="parenthesis" id="openingTimes">Opening times:</span>
       Wednesday, September 1st, 6-10 pm (opening night) / Thursday, September 2nd,
       11-9 pm / Friday, September 3rd, 11-9 pm / Saturday ,September 4th, 10-9 pm
       / Sunday, September 5th, 10-5 pm
@@ -368,14 +379,14 @@
   }
 
   .parenthesis {
-    color: red;
+    color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
   .parenthesis:hover {
     text-decoration: underline dotted;
-    color: black;
+    color: red;
   }
 
   @media (max-width: 768px) {
