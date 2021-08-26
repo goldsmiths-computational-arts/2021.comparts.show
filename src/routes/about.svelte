@@ -184,11 +184,13 @@
     padding-right: 1vw;
     font-size: 1rem;
   }
+
   p {
     padding-left: 1vw;
     padding-right: 1vw;
     font-size: 2rem;
   }
+
   .bubble-overlay {
     position: fixed;
     top: 0;
@@ -200,5 +202,13 @@
     font-size: 3rem;
     /* margin-left: 4vw; */
     margin-top: 4vh;
+  }
+
+  @media (max-width: 768px) {
+    p {
+      padding-left: 1vw;
+      padding-right: 1vw;
+      font-size: 1rem;
+    }
   }
 </style>
