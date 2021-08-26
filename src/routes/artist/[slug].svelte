@@ -13,8 +13,9 @@
   import Carousel from '@beyonk/svelte-carousel'
   import anime from 'animejs/lib/anime.es.js'
   import { onMount } from 'svelte'
-
+  let history
   onMount(() => {
+    history = window.history
     anime({
       targets: '#myClip .blob-path',
       d: [
@@ -33,46 +34,38 @@
       loop: true,
     })
   })
-
   const handleBackButton = () => {
-    goto('/')
+    history.back()
   }
-
   const artworkInfo = ArtworksCSV.find(
     (element) => nameProcessor(element.preferredName) === artistId
   )
-
   const artistInfo = ArtistsCSV.find(
     (element) =>
       element.uniEmail.split('@')[0] === artworkInfo.email.split('@')[0]
   )
-
   let artworkDescription
   let artistBio
-
   if (artworkInfo) {
     artworkDescription = artworkInfo.artwork.split('\n')
   }
-
   let instagram, website, youtube, vimeo, twitch, facebook, twitter, email
   if (artistInfo) {
     artistBio = artistInfo.artistBio.split('\n')
-
     instagram = artistInfo.instagram
     website = artistInfo.website
-    youtube = artistInfo.youtube
-    vimeo = artistInfo.vimeo
-    twitch = artistInfo.twitch
-    facebook = artworkInfo.facebook
-    twitter = artworkInfo.twitter
-    email = artworkInfo.email
+    youtube = artistInfo.youtube.replace('no', '')
+    vimeo = artistInfo.vimeo.replace('n/a', '').replace('no', '')
+    twitch = artistInfo.twitch.replace('n/a', '').replace('no', '')
+    facebook = artistInfo.facebook.replace('n/a', '')
+    twitter = artistInfo.twitter
+    email = artistInfo.email
   }
-
   if (artworkInfo.bio !== '') {
     artistBio = artworkInfo.bio.split('\n')
   }
-
   const artworkUrlArray = artworkInfo.photoUrl.split(',')
+  console.log(facebook, twitch, twitter, vimeo)
 </script>
 
 <div class="container">
@@ -139,13 +132,22 @@
       {/each}
     </div>
     <div class="media-icons">
-      {#if email}
+      {#if email !== ''}
         <a href="mailto:{artistInfo.email}" target="_blank" rel="noreferrer"
           ><img src="/img/icons/email.svg" alt="back" class="back-arrow" /></a
         >
       {/if}
       {#if facebook}
-        <img src="/img/icons/fb.svg" alt="back" class="back-arrow" />
+        <a
+          href="https://www.facebook.com/{facebook.replace(
+            'https://www.facebook.com/',
+            ''
+          )}"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/img/icons/fb.svg" alt="back" class="back-arrow" />
+        </a>
       {/if}
       {#if instagram}
         <a
@@ -162,7 +164,15 @@
         <img src="/img/icons/twitch.svg" alt="back" class="back-arrow" />
       {/if}
       {#if twitter}
-        <img src="/img/icons/twitter.svg" alt="back" class="back-arrow" />
+        <a
+          href="https://www.twitter.com/{twitter
+            .replace('https://www.twitter.com/', '')
+            .replace('https://twitter.com/', '')}"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/img/icons/twitter.svg" alt="back" class="back-arrow" />
+        </a>
       {/if}
       {#if vimeo}
         <a href={vimeo} target="_blank" rel="noreferrer">
@@ -203,39 +213,33 @@
     flex: 1;
     padding-top: 10px;
   }
-
   .title {
     font-size: 1.5rem;
     margin-left: 1vw;
     align-self: center;
     display: flex;
   }
-
   .back-arrow {
     width: 30px;
     margin-left: 0.5vw;
     cursor: pointer;
   }
-
   .artwork-image {
     margin-top: 2vh;
     width: 100%;
   }
-
   .description {
     font-size: 1rem;
     margin-left: 7vw;
     margin-right: 7vw;
     margin-top: 4vh;
   }
-
   .bio-image {
     align-self: center;
     justify-self: center;
     width: 20vw;
     padding-top: 4vh;
   }
-
   .footer-text {
     color: red;
     font-size: 2rem;
@@ -244,47 +248,39 @@
     padding-bottom: 1vh;
     cursor: pointer;
   }
-
   .error-message {
     font-family: dotgothic16;
     color: red;
     font-size: 2rem;
   }
-
   .media-icons {
     align-self: center;
     padding-top: 4vh;
     padding-bottom: 4vh;
   }
-
   .go-back {
     cursor: pointer;
   }
-
   .chevron {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 5px;
     border-radius: 100px;
   }
-
   .chevron:hover {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px;
     border-radius: 100px;
   }
-
   svg {
     width: 10vh;
     height: 10vh;
     margin-left: auto;
     margin-right: 1vw;
   }
-
   .small-image {
     width: 100%;
     height: 100%;
   }
-
   @media (max-width: 768px) {
     .bio-image {
       align-self: center;
