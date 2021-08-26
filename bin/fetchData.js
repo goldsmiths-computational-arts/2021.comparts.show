@@ -156,16 +156,45 @@ const getPublicProgrammingData = async (sheets) => {
     range: 'Sheet1!2:119',
   })
 
-  let publicProgrammingScheduleData = 'speakerName, keyWords, time, location\n'
+  let publicProgrammingScheduleData =
+    'guestSpeaker,artistSpeakerOne,artistSpeakerTwo,artistSpeakerThree,panel,time,location,additionalInfo\n'
 
   publicProgrammingData.data.values.forEach((data) => {
-    const [speakerName, keyWords, time, location] = data
-    publicProgrammingScheduleData += `${speakerName},${keyWords},${time},${location}`
+    const [
+      guestSpeaker,
+      artistSpeakerOne,
+      artistSpeakerTwo,
+      artistSpeakerThree,
+      panel,
+      time,
+      location,
+      additionalInfo,
+    ] = data
+    publicProgrammingScheduleData += `${guestSpeaker},${artistSpeakerOne},${artistSpeakerTwo},${artistSpeakerThree},"${panel}",${time},"${location}","${additionalInfo}"\n`
   })
   fs.writeFileSync(
     `${artworkDir}/publicProgrammingSchedule.csv`,
     publicProgrammingScheduleData
   )
+}
+
+const getG05Schedule = async (sheets) => {
+  const spreadsheetId = '15Zc0S43ga71V4Dn9n2gDAT4wndTR1gSC3LHI4a26rFs'
+  const artworkDir = normalize(`${__dirname}/../src/utils/data`)
+
+  const g05Data = await sheets.spreadsheets.values.get({
+    spreadsheetId: spreadsheetId,
+    range: 'Sheet1!2:119',
+  })
+
+  let g05ScheduleData = 'title,artist,time,date\n'
+
+  g05Data.data.values.forEach((data) => {
+    const [title, artist, time, date] = data
+    g05ScheduleData += `${title},${artist},${time},${date}\n`
+  })
+
+  fs.writeFileSync(`${artworkDir}/g05Schedule.csv`, g05ScheduleData)
 }
 
 const main = async () => {
@@ -180,6 +209,7 @@ const main = async () => {
   getMegaformData(sheets)
   getArtworkFormData(sheets, drive)
   getPublicProgrammingData(sheets)
+  getG05Schedule(sheets)
 }
 
 main()
