@@ -14,10 +14,7 @@
   import anime from 'animejs/lib/anime.es.js'
   import { onMount } from 'svelte'
 
-  let history
-
   onMount(() => {
-    history = window.history
     anime({
       targets: '#myClip .blob-path',
       d: [
@@ -38,7 +35,7 @@
   })
 
   const handleBackButton = () => {
-    history.back()
+    goto('/')
   }
 
   const artworkInfo = ArtworksCSV.find(
@@ -63,12 +60,12 @@
 
     instagram = artistInfo.instagram
     website = artistInfo.website
-    youtube = artistInfo.youtube.replace('no', '')
-    vimeo = artistInfo.vimeo.replace('n/a', '').replace('no', '')
-    twitch = artistInfo.twitch.replace('n/a', '').replace('no', '')
-    facebook = artistInfo.facebook.replace('n/a', '')
-    twitter = artistInfo.twitter
-    email = artistInfo.email
+    youtube = artistInfo.youtube
+    vimeo = artistInfo.vimeo
+    twitch = artistInfo.twitch
+    facebook = artworkInfo.facebook
+    twitter = artworkInfo.twitter
+    email = artworkInfo.email
   }
 
   if (artworkInfo.bio !== '') {
@@ -76,8 +73,6 @@
   }
 
   const artworkUrlArray = artworkInfo.photoUrl.split(',')
-
-  console.log(facebook, twitch, twitter, vimeo)
 </script>
 
 <div class="container">
@@ -144,22 +139,13 @@
       {/each}
     </div>
     <div class="media-icons">
-      {#if email !== ''}
+      {#if email}
         <a href="mailto:{artistInfo.email}" target="_blank" rel="noreferrer"
           ><img src="/img/icons/email.svg" alt="back" class="back-arrow" /></a
         >
       {/if}
       {#if facebook}
-        <a
-          href="https://www.facebook.com/{facebook.replace(
-            'https://www.facebook.com/',
-            ''
-          )}"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src="/img/icons/fb.svg" alt="back" class="back-arrow" />
-        </a>
+        <img src="/img/icons/fb.svg" alt="back" class="back-arrow" />
       {/if}
       {#if instagram}
         <a
@@ -176,15 +162,7 @@
         <img src="/img/icons/twitch.svg" alt="back" class="back-arrow" />
       {/if}
       {#if twitter}
-        <a
-          href="https://www.twitter.com/{twitter
-            .replace('https://www.twitter.com/', '')
-            .replace('https://twitter.com/', '')}"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src="/img/icons/twitter.svg" alt="back" class="back-arrow" />
-        </a>
+        <img src="/img/icons/twitter.svg" alt="back" class="back-arrow" />
       {/if}
       {#if vimeo}
         <a href={vimeo} target="_blank" rel="noreferrer">
