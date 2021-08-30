@@ -204,9 +204,9 @@
     </div>
     <div class="key-text">
       <span class="parenthesis" id="openingTimes">Opening times:</span>
-      Wednesday, September 1st, 6-10 pm (opening night) / Thursday, September 2nd,
-      11-9 pm / Friday, September 3rd, 11-9 pm / Saturday ,September 4th, 10-9 pm
-      / Sunday, September 5th, 10-5 pm
+      Wednesday, September 1st, 6pm-10pm (opening night) / Thursday, September 2nd,
+      11am-9pm / Friday, September 3rd, 11am-9pm / Saturday ,September 4th, 10am-9pm
+      / Sunday, September 5th, 10am-5pm
     </div>
     <div class="names">
       {#each secondSectionOfArtists as artist, i}
